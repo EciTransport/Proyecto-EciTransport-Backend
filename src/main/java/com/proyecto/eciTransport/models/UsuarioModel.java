@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "usuario")
 public class UsuarioModel {
-
+    //Test git branches
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
