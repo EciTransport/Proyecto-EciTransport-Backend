@@ -1,4 +1,4 @@
 /target
 /idea
-mvnw.cmd
-.gitignore
+/mvnw.cmd
+/.gitignore

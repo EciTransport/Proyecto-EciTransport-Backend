@@ -14,7 +14,6 @@ public class ReportService {
     @Autowired
     ReportRepository reportesRepository;
 
-
     /**
      * Create new report
      * @param id id report
