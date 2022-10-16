@@ -21,4 +21,10 @@ public class ReportRepositoryImpl implements ReportRepository {
         reports.add(reportModel2);
         reports.add(reportModel3);
     }
+
+    @Override
+    public void crateReport(long id, String author, String description, Timestamp hourReport) {
+        ReportModel newReport = new ReportModel(id,author,description,hourReport);
+        reports.add(newReport);
+    }
 }
