@@ -27,4 +27,10 @@ public class ReportRepositoryImpl implements ReportRepository {
         ReportModel newReport = new ReportModel(id,author,description,hourReport);
         reports.add(newReport);
     }
+
+    @Override
+    public ArrayList<ReportModel> getAllReports() {
+        return reports;
+    }
+
 }
