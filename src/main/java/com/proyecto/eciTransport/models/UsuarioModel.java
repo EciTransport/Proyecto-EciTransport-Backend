@@ -1,4 +1,4 @@
-package com.example.demo.models;
+package com.proyecto.eciTransport.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
