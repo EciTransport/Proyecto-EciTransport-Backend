@@ -1,9 +1,16 @@
 package com.proyecto.eciTransport.models;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
+
+
 import java.sql.Timestamp;
+
+@Document("Report")
 
 public class ReportModel {
 
+    @MongoId
     private long id;
     private String author;
     private String description;

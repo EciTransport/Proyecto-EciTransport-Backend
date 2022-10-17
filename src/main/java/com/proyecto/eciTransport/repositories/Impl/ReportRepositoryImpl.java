@@ -8,9 +8,9 @@ import org.springframework.stereotype.Repository;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
-@Repository
-public class ReportRepositoryImpl implements ReportRepository {
 
+public class ReportRepositoryImpl  {
+/*
     private ArrayList<ReportModel> reports = new ArrayList<>();
 
     public ReportRepositoryImpl() {
@@ -44,6 +44,6 @@ public class ReportRepositoryImpl implements ReportRepository {
             }
         }
         return null;
-    }
+    }*/
 
 }
