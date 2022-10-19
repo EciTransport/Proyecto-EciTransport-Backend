@@ -18,13 +18,10 @@ public class ReportService {
 
     /**
      * Create new report
-     * @param id id report
-     * @param author name author
-     * @param description description report
-     * @param hourReport creation time
+     * @param report Object Report
      */
-    public void createReport(long id, String author, String description, Timestamp hourReport, String sense, String location, long numberLikes) {
-        reportesRepository.crateReport(id,author,description,hourReport,sense,location,numberLikes);
+    public void createReport(ReportModel report) {
+        reportesRepository.crateReport(report.getId(),report.getAuthor(),report.getDescription(),report.getHourReport(),report.getSentido(),report.getUbicacion(),report.getNumberlikes());
     }
 
     /**
