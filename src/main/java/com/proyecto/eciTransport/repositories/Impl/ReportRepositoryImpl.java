@@ -3,13 +3,21 @@ package com.proyecto.eciTransport.repositories.Impl;
 import com.proyecto.eciTransport.models.ReportModel;
 import com.proyecto.eciTransport.repositories.ECITransportException;
 import com.proyecto.eciTransport.repositories.ReportRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 
 
-public class ReportRepositoryImpl  {
+
+public class ReportRepositoryImpl {
+
 /*
     private ArrayList<ReportModel> reports = new ArrayList<>();
 

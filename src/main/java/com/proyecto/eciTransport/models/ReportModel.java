@@ -1,22 +1,24 @@
 package com.proyecto.eciTransport.models;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Document("Report")
 
 public class ReportModel {
 
-    @MongoId
+    @Id
     private long id;
     private String author;
     private String description;
-    private Timestamp hourReport;
+    private Date hourReport;
 
-    public ReportModel(long id, String author, String description, Timestamp hourReport) {
+    public ReportModel(long id, String author, String description, Date hourReport) {
         this.id = id;
         this.author = author;
         this.description = description;
@@ -47,11 +49,21 @@ public class ReportModel {
         this.description = description;
     }
 
-    public Timestamp getHourReport() {
+    public Date getHourReport() {
         return hourReport;
     }
 
     public void setHourReport(Timestamp hourReport) {
         this.hourReport = hourReport;
+    }
+
+    @Override
+    public String toString() {
+        return "ReportModel{" +
+                "id=" + id +
+                ", author='" + author + '\'' +
+                ", description='" + description + '\'' +
+                ", hourReport=" + hourReport +
+                '}';
     }
 }
