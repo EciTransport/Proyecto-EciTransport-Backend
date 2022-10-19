@@ -13,7 +13,7 @@ import java.util.Objects;
 @Repository
 public class ReportRepositoryImpl implements ReportRepository {
 
-    private ArrayList<ReportModel> reports = new ArrayList<>();
+    private final ArrayList<ReportModel> reports = new ArrayList<>();
 
     public ReportRepositoryImpl() {
         //CreateReports
