@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.sql.Date;
 import java.util.Objects;
 
 @Repository
@@ -42,6 +43,25 @@ public class ReportRepositoryImpl implements ReportRepository {
             if (Objects.equals(r.getUbicacion(), location)) reportsLocation.add(r);
         }
         return reportsLocation;
+    }
+
+    @Override
+    public ArrayList<ReportModel> getAllReportsSense(String sense) {
+        ArrayList<ReportModel> reportsSense = new ArrayList<>();
+        for (ReportModel r: reports) {
+            if (Objects.equals(r.getUbicacion(), sense)) reportsSense.add(r);
+        }
+        return reportsSense;
+    }
+
+    @Override
+    public ArrayList<ReportModel> getAllReportsDate(Date date) {
+        ArrayList<ReportModel> reportsDate = new ArrayList<>();
+        for (ReportModel r: reports) {
+            java.sql.Date dateReport = new java.sql.Date(r.getHourReport().getTime());
+            if (dateReport == date) reportsDate.add(r);
+        }
+        return reportsDate;
     }
 
     @Override

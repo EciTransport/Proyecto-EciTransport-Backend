@@ -4,6 +4,7 @@ import com.proyecto.eciTransport.models.ReportModel;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.sql.Date;
 
 public interface ReportRepository {
 
@@ -29,7 +30,24 @@ public interface ReportRepository {
      */
     public ArrayList<ReportModel> getAllReportsLocation(String location) throws ECITransportException;
 
+    /**
+     * Get All Reports with specific sense
+     * @return ArrayList the reports
+     */
+    public ArrayList<ReportModel> getAllReportsSense(String sense) throws ECITransportException;
 
+
+    /**
+     * Get All Reports with specific Date
+     * @return ArrayList the reports
+     */
+    public ArrayList<ReportModel> getAllReportsDate(Date date) throws ECITransportException;
+
+    /**
+     * consult a specific report
+     * @param id of specific report
+     * @return report
+     */
     public ReportModel consultReport(long id) throws ECITransportException;
 
 }
