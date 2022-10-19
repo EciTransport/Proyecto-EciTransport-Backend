@@ -9,7 +9,6 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 @Document("Report")
-
 public class ReportModel {
 
     @Id

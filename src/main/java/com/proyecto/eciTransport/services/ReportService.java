@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -32,6 +33,15 @@ public class ReportService {
         System.out.println("Data creation started...");
         reportRepository.save(new ReportModel(12345, "Carlos", "hola", new Date()));
         System.out.println("Data creation complete...");
+    }
+
+    public List<ReportModel> getReports() {
+        return  reportRepository.findAll();
+    }
+
+    public void addReport(ReportModel report) {
+        ReportModel newreport = new ReportModel(report.getId(), report.getAuthor(), report.getDescription(),report.getHourReport());
+        reportRepository.save(newreport);
     }
 }
 
