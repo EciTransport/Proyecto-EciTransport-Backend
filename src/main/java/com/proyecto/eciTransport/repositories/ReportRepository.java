@@ -14,13 +14,21 @@ public interface ReportRepository {
      * @param description description report
      * @param hourReport creation time
      */
-    public void crateReport(long id, String author, String description, Timestamp hourReport);
+    public void crateReport(long id, String author, String description, Timestamp hourReport, String sense, String location, long numberLikes);
 
     /**
      * Get All Reports
      * @return ArrayList the reports
      */
-    public ArrayList<ReportModel> getAllReports();
+    public ArrayList<ReportModel> getAllReports() throws ECITransportException;
+
+
+    /**
+     * Get All Reports with specific location
+     * @return ArrayList the reports
+     */
+    public ArrayList<ReportModel> getAllReportsLocation(String location) throws ECITransportException;
+
 
     public ReportModel consultReport(long id) throws ECITransportException;
 

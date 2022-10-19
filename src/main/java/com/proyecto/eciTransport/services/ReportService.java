@@ -22,8 +22,8 @@ public class ReportService {
      * @param description description report
      * @param hourReport creation time
      */
-    public void createReport(long id, String author, String description, Timestamp hourReport) {
-        reportesRepository.crateReport(id,author,description,hourReport);
+    public void createReport(long id, String author, String description, Timestamp hourReport, String sense, String location, long numberLikes) {
+        reportesRepository.crateReport(id,author,description,hourReport,sense,location,numberLikes);
     }
 
     /**
@@ -31,8 +31,27 @@ public class ReportService {
      * @return ArrayList the reports
      */
     public ArrayList<ReportModel> getAllReports() {
-        return reportesRepository.getAllReports();
+        try {
+            return reportesRepository.getAllReports();
+        } catch (ECITransportException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
+
+    /**
+     * Get All Reports with specific location
+     * @return ArrayList the reports
+     */
+    public ArrayList<ReportModel> getAllReportsLocation(String location) {
+        try {
+            return reportesRepository.getAllReportsLocation(location);
+        } catch (ECITransportException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     /**
      * consult a specific report
      * @param id of specific report
