@@ -14,11 +14,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 @RestController
-@RequestMapping("v1/reports")
+@RequestMapping("v1/reports/")
 public class ReportController {
 
     @Autowired
@@ -29,7 +27,7 @@ public class ReportController {
         reportService.createReport(report);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path = "id/{id}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getReport(@PathVariable long id) {
         ReportModel report = reportService.consultReport(id);
         Gson gson = new Gson();
@@ -41,21 +39,21 @@ public class ReportController {
         Gson gson = new Gson();
         return new ResponseEntity<>(gson.toJson(reportModel), HttpStatus.ACCEPTED);
     }
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path = "date/{date}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getAllReportsDate(@PathVariable Date date) {
         ArrayList<ReportModel> reportModel = reportService.getAllReportsDate(date);
         Gson gson = new Gson();
         return new ResponseEntity<>(gson.toJson(reportModel), HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path = "location/{location}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getAllReportsLocation(@PathVariable String location) {
         ArrayList<ReportModel> reportModel = reportService.getAllReportsLocation(location);
         Gson gson = new Gson();
         return new ResponseEntity<>(gson.toJson(reportModel), HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path = "sense/{sense}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getAllReportsSense(@PathVariable String sense) {
         ArrayList<ReportModel> reportModel = reportService.getAllReportsSense(sense);
         Gson gson = new Gson();

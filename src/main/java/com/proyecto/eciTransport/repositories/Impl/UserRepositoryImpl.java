@@ -3,10 +3,11 @@ package com.proyecto.eciTransport.repositories.Impl;
 import com.proyecto.eciTransport.models.UsuarioModel;
 import com.proyecto.eciTransport.repositories.ECITransportException;
 import com.proyecto.eciTransport.repositories.UserRespository;
-
+import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class UserRepositoryImpl implements UserRespository {
 
     private final List<UsuarioModel> userList = new ArrayList<>();
