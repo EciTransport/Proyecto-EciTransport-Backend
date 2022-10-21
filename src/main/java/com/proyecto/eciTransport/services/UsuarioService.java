@@ -26,4 +26,18 @@ public class UsuarioService {
         }
     }
 
+    /**
+     * Consult user for Id
+     * @param name Name User
+     * @return user
+     */
+    public UsuarioModel consultUserName(String name) {
+        try {
+            return userRespository.consultUserName(name);
+        } catch (ECITransportException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }

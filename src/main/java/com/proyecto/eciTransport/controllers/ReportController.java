@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("v1/reports/")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ReportController {
 
     @Autowired

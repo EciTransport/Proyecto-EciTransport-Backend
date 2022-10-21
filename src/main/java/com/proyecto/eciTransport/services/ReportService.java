@@ -21,7 +21,7 @@ public class ReportService {
      * @param report Object Report
      */
     public void createReport(ReportModel report) {
-        reportesRepository.crateReport(report.getId(),report.getAuthor(),report.getDescription(),report.getHourReport(),report.getSentido(),report.getUbicacion(),report.getNumberlikes());
+        reportesRepository.crateReport(report.getId(),report.getAuthor(),report.getDescription(),report.getHourReport(),report.getSentido(),report.getUbicacion(),report.getNumberlikes(),report.getImagesReport());
     }
 
     /**

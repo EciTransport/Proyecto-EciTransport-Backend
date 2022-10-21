@@ -6,12 +6,22 @@ public class UsuarioModel {
     private String nombre;
     private String email;
     private String password;
+    private String imageProfile;
 
-    public UsuarioModel(long id, String nombre, String email, String password) {
+    public UsuarioModel(long id, String nombre, String email, String password, String imageProfile) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
         this.password = password;
+        this.imageProfile = imageProfile;
+    }
+
+    public String getImageProfile() {
+        return imageProfile;
+    }
+
+    public void setImageProfile(String imageProfile) {
+        this.imageProfile = imageProfile;
     }
 
     public long getId() {

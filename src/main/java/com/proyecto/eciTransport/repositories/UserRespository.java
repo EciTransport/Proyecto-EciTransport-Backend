@@ -10,4 +10,11 @@ public interface UserRespository {
      * @return user
      */
     public UsuarioModel consultUser(long id) throws ECITransportException;
+
+    /**
+     * Consult user for Id
+     * @param name Name User
+     * @return user
+     */
+    public UsuarioModel consultUserName(String name) throws ECITransportException;
 }

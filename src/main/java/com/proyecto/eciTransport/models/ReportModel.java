@@ -1,28 +1,29 @@
 package com.proyecto.eciTransport.models;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 public class ReportModel {
 
     private long id;
-    private String author;
+    private UsuarioModel author;
     private String description;
     private Timestamp hourReport;
-
     private String sentido;
-
-    private String Ubicacion;
-
+    private String ubicacion;
     private long numberlikes;
+    private ArrayList<ImagesReportModel> imagesReport;
 
-    public ReportModel(long id, String author, String description, Timestamp hourReport, String sentido, String ubicacion, long numberlikes) {
+    public ReportModel(long id, UsuarioModel author, String description, Timestamp hourReport, String sentido,
+                       String ubicacion, long numberlikes, ArrayList imagesReport) {
         this.id = id;
         this.author = author;
         this.description = description;
         this.hourReport = hourReport;
         this.sentido = sentido;
-        this.Ubicacion = ubicacion;
+        this.ubicacion = ubicacion;
         this.numberlikes = numberlikes;
+        this.imagesReport = imagesReport;
     }
 
     public long getId() {
@@ -33,11 +34,11 @@ public class ReportModel {
         this.id = id;
     }
 
-    public String getAuthor() {
+    public UsuarioModel getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(UsuarioModel author) {
         this.author = author;
     }
 
@@ -66,11 +67,11 @@ public class ReportModel {
     }
 
     public String getUbicacion() {
-        return Ubicacion;
+        return ubicacion;
     }
 
     public void setUbicacion(String ubicacion) {
-        Ubicacion = ubicacion;
+        ubicacion = ubicacion;
     }
 
     public long getNumberlikes() {
@@ -79,5 +80,13 @@ public class ReportModel {
 
     public void setNumberlikes(long numberlikes) {
         this.numberlikes = numberlikes;
+    }
+
+    public ArrayList<ImagesReportModel> getImagesReport() {
+        return imagesReport;
+    }
+
+    public void setImagesReport(ArrayList<ImagesReportModel> imagesReport) {
+        this.imagesReport = imagesReport;
     }
 }

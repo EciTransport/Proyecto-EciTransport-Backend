@@ -1,6 +1,7 @@
 package com.proyecto.eciTransport.repositories;
 
 import com.proyecto.eciTransport.models.ReportModel;
+import com.proyecto.eciTransport.models.UsuarioModel;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -15,7 +16,8 @@ public interface ReportRepository {
      * @param description description report
      * @param hourReport creation time
      */
-    public void crateReport(long id, String author, String description, Timestamp hourReport, String sense, String location, long numberLikes);
+    public void crateReport(long id, UsuarioModel author, String description, Timestamp hourReport, String sense,
+                            String location, long numberLikes, ArrayList imagesReport);
 
     /**
      * Get All Reports
