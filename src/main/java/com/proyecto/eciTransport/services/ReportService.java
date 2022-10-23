@@ -89,4 +89,16 @@ public class ReportService {
             return null;
         }
     }
+
+    /**
+     * Delete Report
+     * @param id Id report
+     */
+    public void deleteReport(long id) {
+        try {
+            reportesRepository.deleteReport(id);
+        } catch (ECITransportException e) {
+            e.printStackTrace();
+        }
+    }
 }

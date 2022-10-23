@@ -17,7 +17,7 @@ public class ReportRepositoryImpl implements ReportRepository {
 
     private final ArrayList<ReportModel> reports = new ArrayList<>();
 
-    public ReportRepositoryImpl() {
+    public ReportRepositoryImpl() throws ECITransportException {
         //ImagesReport
         ArrayList<ImagesReportModel> imagesReport1 = new ArrayList<>();
         ImagesReportModel image1 = new ImagesReportModel("https://cloudfront-us-east-1.images.arcpublishing.com/infobae/JJKSV7KZLBDNRNJPMEIQNAU2KM.jpg");
@@ -87,11 +87,15 @@ public class ReportRepositoryImpl implements ReportRepository {
         for (ReportModel report: reports) {
             if(report.getId() == id){
                 return report;
-            }else{
-                throw new ECITransportException("the report doesn't exist");
             }
         }
-        return null;
+        throw new ECITransportException("the report doesn't exist");
+    }
+
+    @Override
+    public void deleteReport(long id) throws ECITransportException {
+        ReportModel reportDel = consultReport(id);
+        reports.remove(reportDel);
     }
 
 }

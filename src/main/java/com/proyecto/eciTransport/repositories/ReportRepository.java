@@ -52,4 +52,7 @@ public interface ReportRepository {
      */
     public ReportModel consultReport(long id) throws ECITransportException;
 
+
+    public void deleteReport(long id) throws ECITransportException;
+
 }

@@ -62,4 +62,10 @@ public class ReportController {
         return new ResponseEntity<>(gson.toJson(reportModel), HttpStatus.ACCEPTED);
     }
 
+    @RequestMapping(path = "/delete/{id}", method = RequestMethod.DELETE,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> deleteReport(@PathVariable long id) {
+        reportService.deleteReport(id);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
 }
