@@ -7,52 +7,52 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("User")
 public class UserModel {
 
+
     @Id
     private long id;
-
-    private String name;
-    private String mail;
+    private String nombre;
+    private String email;
     private String password;
+    private String imageProfile;
+
+    public UserModel(long id, String nombre, String email, String password, String imageProfile) {
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+        this.password = password;
+        this.imageProfile = imageProfile;
+    }
+
+    public String getImageProfile() {
+        return imageProfile;
+    }
+
+    public void setImageProfile(String imageProfile) {
+        this.imageProfile = imageProfile;
+    }
 
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
-
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
-
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String email) {
+        this.email = email;
     }
-
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "UserModel{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", mail='" + mail + '\'' +
-                ", password='" + password + '\'' +
-                '}';
     }
 }

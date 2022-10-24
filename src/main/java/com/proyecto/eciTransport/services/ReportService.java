@@ -6,10 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-
+import java.util.stream.Collectors;
 
 @EnableMongoRepositories(basePackageClasses = ReportRepository.class)
 @Service
@@ -18,32 +19,61 @@ public class ReportService {
     @Autowired
     ReportRepository reportRepository;
 
-
-
-
-    public Optional<ReportModel> getReportById(long id) {
-
-        System.out.println("Getting item by name: " + id);
-        Optional<ReportModel> rm =reportRepository.findById(id);
-        System.out.println(rm);
-        return rm;
+    /**
+     * Create new report
+     * @param report Object Report
+     */
+    public void createReport(ReportModel report) {
+        reportRepository.save(new ReportModel(report.getId(),report.getAuthor(),report.getDescription(),report.getHourReport(),report.getSentido(),report.getUbicacion(),report.getNumberlikes(),report.getImagesReport()));
     }
 
-    void createReportItems() {
-        System.out.println("Data creation started...");
-        reportRepository.save(new ReportModel(12345, "Carlos", "hola", new Date()));
-        System.out.println("Data creation complete...");
+    /**
+     * Get All Reports
+     * @return ArrayList the reports
+     */
+    public List<ReportModel> getAllReports() {
+        return reportRepository.findAll();
     }
 
-    public List<ReportModel> getReports() {
-        return  reportRepository.findAll();
+    /**
+     * Get All Reports with specific location
+     * @return ArrayList the reports
+     */
+    public List<ReportModel> getAllReportsLocation(String location) {
+      return reportRepository.findAll().stream().filter(r -> r.getUbicacion().equals(location)).collect(Collectors.toList());
     }
 
-    public void addReport(ReportModel report) {
-        ReportModel newreport = new ReportModel(report.getId(), report.getAuthor(), report.getDescription(),report.getHourReport());
-        reportRepository.save(newreport);
+    /**
+     * Get All Reports with specific location
+     * @return ArrayList the reports
+     */
+    public List<ReportModel> getAllReportsSense(String sense) {
+            return reportRepository.findAll().stream().filter(r ->r.getSentido().equals(sense)).collect(Collectors.toList());
+    }
+
+    /**
+     * Get All Reports with specific Date
+     * @return ArrayList the reports
+     */
+    public List<ReportModel> getAllReportsDate(Date date) {
+            return reportRepository.findAll().stream().filter(r -> r.getHourReport().equals(date)).collect(Collectors.toList());
+    }
+
+    /**
+     * consult a specific report
+     *
+     * @param id of specific report
+     * @return report
+     */
+    public Optional<ReportModel> consultReport(long id) {
+        return reportRepository.findById(id);
+    }
+
+    /**
+     * Delete Report
+     * @param id Id report
+     */
+    public void deleteReport(long id) {
+        reportRepository.deleteById(id);
     }
 }
-
-
-
