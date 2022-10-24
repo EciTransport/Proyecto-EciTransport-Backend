@@ -15,6 +15,11 @@ public class UserModel {
     private String password;
     private String imageProfile;
 
+
+    public UserModel(){
+        super();
+    }
+
     public UserModel(long id, String nombre, String email, String password, String imageProfile) {
         this.id = id;
         this.nombre = nombre;
@@ -49,6 +54,18 @@ public class UserModel {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", imageProfile='" + imageProfile + '\'' +
+                '}';
+    }
+
     public String getPassword() {
         return password;
     }

@@ -13,6 +13,4 @@ import java.sql.Date;
 @Component("reportRepository")
 public interface ReportRepository extends MongoRepository<ReportModel, Long>{
 
-
-
 }
