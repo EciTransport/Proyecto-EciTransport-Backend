@@ -1,14 +1,26 @@
 package com.proyecto.eciTransport.models;
 
-public class UsuarioModel {
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document("User")
+public class UserModel {
+
+
+    @Id
     private long id;
     private String nombre;
     private String email;
     private String password;
     private String imageProfile;
 
-    public UsuarioModel(long id, String nombre, String email, String password, String imageProfile) {
+
+    public UserModel(){
+        super();
+    }
+
+    public UserModel(long id, String nombre, String email, String password, String imageProfile) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
@@ -42,6 +54,18 @@ public class UsuarioModel {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", imageProfile='" + imageProfile + '\'' +
+                '}';
+    }
+
     public String getPassword() {
         return password;
     }

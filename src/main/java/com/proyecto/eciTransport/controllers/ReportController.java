@@ -2,10 +2,7 @@ package com.proyecto.eciTransport.controllers;
 
 import com.google.gson.Gson;
 import com.proyecto.eciTransport.models.ReportModel;
-import com.proyecto.eciTransport.models.UsuarioModel;
-import com.proyecto.eciTransport.repositories.ECITransportException;
 import com.proyecto.eciTransport.services.ReportService;
-import com.proyecto.eciTransport.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,8 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import org.springframework.web.bind.annotation.*;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("v1/reports/")
@@ -31,33 +28,33 @@ public class ReportController {
     }
     @RequestMapping(path = "id/{id}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getReport(@PathVariable long id) {
-        ReportModel report = reportService.consultReport(id);
+        Optional<ReportModel> report = reportService.consultReport(id);
         Gson gson = new Gson();
         return new ResponseEntity<>(gson.toJson(report), HttpStatus.ACCEPTED);
     }
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping
     public ResponseEntity<?> getAllReports() {
-        ArrayList<ReportModel> reportModel = reportService.getAllReports();
+        List<ReportModel> reportModel = reportService.getAllReports();
         Gson gson = new Gson();
-        return new ResponseEntity<>(gson.toJson(reportModel), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(reportModel, HttpStatus.ACCEPTED);
     }
     @RequestMapping(path = "date/{date}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getAllReportsDate(@PathVariable Date date) {
-        ArrayList<ReportModel> reportModel = reportService.getAllReportsDate(date);
+        List<ReportModel> reportModel = reportService.getAllReportsDate(date);
         Gson gson = new Gson();
         return new ResponseEntity<>(gson.toJson(reportModel), HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(path = "location/{location}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getAllReportsLocation(@PathVariable String location) {
-        ArrayList<ReportModel> reportModel = reportService.getAllReportsLocation(location);
+        List<ReportModel> reportModel = reportService.getAllReportsLocation(location);
         Gson gson = new Gson();
         return new ResponseEntity<>(gson.toJson(reportModel), HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(path = "sense/{sense}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getAllReportsSense(@PathVariable String sense) {
-        ArrayList<ReportModel> reportModel = reportService.getAllReportsSense(sense);
+        List<ReportModel> reportModel = reportService.getAllReportsSense(sense);
         Gson gson = new Gson();
         return new ResponseEntity<>(gson.toJson(reportModel), HttpStatus.ACCEPTED);
     }

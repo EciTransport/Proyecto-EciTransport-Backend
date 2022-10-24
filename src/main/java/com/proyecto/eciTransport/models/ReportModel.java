@@ -1,20 +1,27 @@
 package com.proyecto.eciTransport.models;
 
-import java.sql.Timestamp;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
+
+import java.util.Date;
 import java.util.ArrayList;
 
+@Document("Report")
 public class ReportModel {
 
+    @Id
     private long id;
-    private UsuarioModel author;
+
+    private UserModel author;
     private String description;
-    private Timestamp hourReport;
+    private Date hourReport;
     private String sentido;
     private String ubicacion;
     private long numberlikes;
     private ArrayList<ImagesReportModel> imagesReport;
 
-    public ReportModel(long id, UsuarioModel author, String description, Timestamp hourReport, String sentido,
+    public ReportModel(long id, UserModel author, String description, Date hourReport, String sentido,
                        String ubicacion, long numberlikes, ArrayList imagesReport) {
         this.id = id;
         this.author = author;
@@ -34,11 +41,11 @@ public class ReportModel {
         this.id = id;
     }
 
-    public UsuarioModel getAuthor() {
+    public UserModel getAuthor() {
         return author;
     }
 
-    public void setAuthor(UsuarioModel author) {
+    public void setAuthor(UserModel author) {
         this.author = author;
     }
 
@@ -50,11 +57,11 @@ public class ReportModel {
         this.description = description;
     }
 
-    public Timestamp getHourReport() {
+    public Date getHourReport() {
         return hourReport;
     }
 
-    public void setHourReport(Timestamp hourReport) {
+    public void setHourReport(Date hourReport) {
         this.hourReport = hourReport;
     }
 
@@ -88,5 +95,19 @@ public class ReportModel {
 
     public void setImagesReport(ArrayList<ImagesReportModel> imagesReport) {
         this.imagesReport = imagesReport;
+    }
+
+    @Override
+    public String toString() {
+        return "ReportModel{" +
+                "id=" + id +
+                ", author=" + author +
+                ", description='" + description + '\'' +
+                ", hourReport=" + hourReport +
+                ", sentido='" + sentido + '\'' +
+                ", ubicacion='" + ubicacion + '\'' +
+                ", numberlikes=" + numberlikes +
+                ", imagesReport=" + imagesReport +
+                '}';
     }
 }

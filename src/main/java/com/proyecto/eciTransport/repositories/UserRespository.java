@@ -1,20 +1,13 @@
 package com.proyecto.eciTransport.repositories;
 
-import com.proyecto.eciTransport.models.UsuarioModel;
+import com.proyecto.eciTransport.models.UserModel;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-public interface UserRespository {
 
-    /**
-     * Consult user for Id
-     * @param id Id User
-     * @return user
-     */
-    public UsuarioModel consultUser(long id) throws ECITransportException;
+@Repository
+@Component("userRepository")
+public interface UserRespository extends MongoRepository<UserModel, Long> {
 
-    /**
-     * Consult user for Id
-     * @param name Name User
-     * @return user
-     */
-    public UsuarioModel consultUserName(String name) throws ECITransportException;
 }
