@@ -30,6 +30,7 @@ public class UserService {
         return userRespository.findById(id);
     }
 
+
     /**
      * Consult user for Id
      *

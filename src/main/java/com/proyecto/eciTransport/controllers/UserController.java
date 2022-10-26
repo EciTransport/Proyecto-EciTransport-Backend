@@ -32,6 +32,7 @@ public class UserController {
         Gson gson = new Gson();
         return new ResponseEntity<>(gson.toJson(usuarioModel), HttpStatus.ACCEPTED);
     }
+
     @GetMapping
     public List<UserModel> consultUserReports(){
         return userService.getUsers();
