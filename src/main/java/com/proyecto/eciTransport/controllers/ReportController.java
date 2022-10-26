@@ -42,9 +42,16 @@ public class ReportController {
         return new ResponseEntity<>(reportModel, HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(path = "/reportsUser/{id}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path = "reportsUser/{id}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getReportUser(@PathVariable long id) {
         List<ReportModel> reportModel = reportService.getReportUser(id);
+        Gson gson = new Gson();
+        return new ResponseEntity<>(reportModel, HttpStatus.ACCEPTED);
+    }
+
+    @RequestMapping(path = "reportsUserEmail/{email}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getReportUserEmail(@PathVariable String email) {
+        List<ReportModel> reportModel = reportService.getReportUserEmail(email);
         Gson gson = new Gson();
         return new ResponseEntity<>(reportModel, HttpStatus.ACCEPTED);
     }
@@ -70,7 +77,7 @@ public class ReportController {
         return new ResponseEntity<>(gson.toJson(reportModel), HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(path = "/delete/{id}", method = RequestMethod.DELETE,produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path = "delete/{id}", method = RequestMethod.DELETE,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> deleteReport(@PathVariable long id) {
         reportService.deleteReport(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);

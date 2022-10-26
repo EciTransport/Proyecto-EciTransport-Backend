@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("v1/user/")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin()
 
 public class UserController {
 
@@ -29,6 +29,13 @@ public class UserController {
     @RequestMapping(path = "name/{name}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getUserName(@PathVariable String name) {
         Optional<UserModel> usuarioModel = userService.consultUserName(name);
+        Gson gson = new Gson();
+        return new ResponseEntity<>(gson.toJson(usuarioModel), HttpStatus.ACCEPTED);
+    }
+
+    @RequestMapping(path = "email/{email}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getUserEmail(@PathVariable String email) {
+        Optional<UserModel> usuarioModel = userService.consultUserEmail(email);
         Gson gson = new Gson();
         return new ResponseEntity<>(gson.toJson(usuarioModel), HttpStatus.ACCEPTED);
     }

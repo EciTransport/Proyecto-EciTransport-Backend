@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @EnableMongoRepositories(basePackageClasses = ReportRepository.class)
@@ -42,6 +39,10 @@ public class ReportService {
      */
     public List<ReportModel> getReportUser(long id) {
         return reportRepository.findAll().stream().filter(r -> r.getAuthor().getId() == (id)).collect(Collectors.toList());
+    }
+
+    public List<ReportModel> getReportUserEmail(String email) {
+        return reportRepository.findAll().stream().filter(r -> Objects.equals(r.getAuthor().getEmail(), email)).collect(Collectors.toList());
     }
 
 
