@@ -35,9 +35,6 @@ public class ReportController {
     @GetMapping
     public ResponseEntity<?> getAllReports() {
         List<ReportModel> reportModel = reportService.getAllReports();
-        for (ReportModel r: reportModel) {
-            System.out.println(r.toString());
-        }
         Gson gson = new Gson();
         return new ResponseEntity<>(reportModel, HttpStatus.ACCEPTED);
     }
