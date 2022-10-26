@@ -41,6 +41,16 @@ public class UserService {
     }
 
     /**
+     * Consult user for email
+     *
+     * @param email Email User
+     * @return user
+     */
+    public Optional<UserModel> consultUserEmail(String email) {
+        return userRespository.findAll().stream().filter(u->u.getEmail().equals(email)).findAny();
+    }
+
+    /**
      * get all users of eciTransport
      * @return list of users of eciTransport
      */
