@@ -35,6 +35,16 @@ public class ReportService {
         return reportRepository.findAll();
     }
 
+
+    /**
+     * Get All Reports
+     * @return ArrayList the reports
+     */
+    public List<ReportModel> getReportUser(long id) {
+        return reportRepository.findAll().stream().filter(r -> r.getAuthor().getId() == (id)).collect(Collectors.toList());
+    }
+
+
     /**
      * Get All Reports with specific location
      * @return ArrayList the reports
@@ -76,4 +86,5 @@ public class ReportService {
     public void deleteReport(long id) {
         reportRepository.deleteById(id);
     }
+
 }

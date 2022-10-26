@@ -12,8 +12,6 @@ public class ReportModel {
 
     @Id
     private long id;
-
-    @DocumentReference
     private UserModel author;
     private String description;
     private Date hourReport;

@@ -34,7 +34,6 @@ public class ReportController {
     }
     @GetMapping
     public ResponseEntity<?> getAllReports() {
-        System.out.println("lknlkcvsdnvklnmselikfvmweo");
         List<ReportModel> reportModel = reportService.getAllReports();
         for (ReportModel r: reportModel) {
             System.out.println(r.toString());
@@ -42,6 +41,14 @@ public class ReportController {
         Gson gson = new Gson();
         return new ResponseEntity<>(reportModel, HttpStatus.ACCEPTED);
     }
+
+    @RequestMapping(path = "/reportsUser/{id}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getReportUser(@PathVariable long id) {
+        List<ReportModel> reportModel = reportService.getReportUser(id);
+        Gson gson = new Gson();
+        return new ResponseEntity<>(reportModel, HttpStatus.ACCEPTED);
+    }
+
     @RequestMapping(path = "date/{date}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getAllReportsDate(@PathVariable Date date) {
         List<ReportModel> reportModel = reportService.getAllReportsDate(date);
