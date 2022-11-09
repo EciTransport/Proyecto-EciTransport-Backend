@@ -9,13 +9,12 @@ import com.proyecto.eciTransport.services.UserService;
 import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("v1/contacts/")
@@ -25,11 +24,19 @@ public class ContactController {
     @Autowired
     ContactService contactService;
 
-    @GetMapping
-    public ResponseEntity<?> getAllReports() {
+    @RequestMapping(path = "consultContacts/",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getAllContacts() {
         List<ContactModel> contactModels = contactService.consultContacts();
         Gson gson = new Gson();
         return new ResponseEntity<>(contactModels, HttpStatus.ACCEPTED);
     }
+
+    @RequestMapping(path = "consultContacts/{name}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getContactsForName(@PathVariable String name) {
+        List<ContactModel> contactModels = contactService.consultContactsForName(name);
+        Gson gson = new Gson();
+        return new ResponseEntity<>(gson.toJson(contactModels), HttpStatus.ACCEPTED);
+    }
+
 
 }

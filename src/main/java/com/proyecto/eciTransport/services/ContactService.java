@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @EnableMongoRepositories
 @Service
@@ -22,6 +22,14 @@ public class ContactService {
      */
     public List<ContactModel> consultContacts() {
         return contactRepository.findAll();
+    }
+
+    /**
+     * Consult contacts
+     * @return List the contacts
+     */
+    public List<ContactModel> consultContactsForName(String name) {
+        return contactRepository.findAll().stream().filter(r -> r.getName().contains(name)).collect(Collectors.toList());
     }
 
 }

@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ContactModel {
     @Id
     private long id;
+    private String name;
     private String urlImageProfile;
     private String urlBackground;
     private String email;
@@ -16,13 +17,22 @@ public class ContactModel {
         super();
     }
 
-    public ContactModel(long id, String urlImageProfile, String urlBackground, String email, String numberWhatsapp, String numerPhone) {
+    public ContactModel(long id, String name, String urlImageProfile, String urlBackground, String email, String numberWhatsapp, String numerPhone) {
         this.id = id;
+        this.name = name;
         this.urlImageProfile = urlImageProfile;
         this.urlBackground = urlBackground;
         this.email = email;
         this.numberWhatsapp = numberWhatsapp;
         this.numerPhone = numerPhone;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public long getId() {
