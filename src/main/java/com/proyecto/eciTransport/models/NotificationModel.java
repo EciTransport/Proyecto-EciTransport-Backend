@@ -11,13 +11,15 @@ public class NotificationModel {
 
     @Id
     private long id;
-    private UserModel user;
+    private UserModel userReceiver;
+    private UserModel userCreator;
     private Date hour;
     private String description;
 
-    public NotificationModel(long id, UserModel user, Date hour, String description) {
+    public NotificationModel(long id, UserModel userReceiver, UserModel userCreator, Date hour, String description) {
         this.id = id;
-        this.user = user;
+        this.userReceiver = userReceiver;
+        this.userCreator = userCreator;
         this.hour = hour;
         this.description = description;
     }
@@ -30,12 +32,20 @@ public class NotificationModel {
         this.id = id;
     }
 
-    public UserModel getUser() {
-        return user;
+    public UserModel getUserReceiver() {
+        return userReceiver;
     }
 
-    public void setUser(UserModel user) {
-        this.user = user;
+    public void setUserReceiver(UserModel userReceiver) {
+        this.userReceiver = userReceiver;
+    }
+
+    public UserModel getUserCreator() {
+        return userCreator;
+    }
+
+    public void setUserCreator(UserModel userCreator) {
+        this.userCreator = userCreator;
     }
 
     public Date getHour() {
@@ -58,7 +68,8 @@ public class NotificationModel {
     public String toString() {
         return "NotificationModel{" +
                 "id=" + id +
-                ", user=" + user +
+                ", userReceiver=" + userReceiver +
+                ", userCreator=" + userCreator +
                 ", hour=" + hour +
                 ", description='" + description + '\'' +
                 '}';

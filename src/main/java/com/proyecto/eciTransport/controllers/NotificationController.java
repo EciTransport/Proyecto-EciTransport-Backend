@@ -23,16 +23,13 @@ public class NotificationController {
 
     @RequestMapping(path = "/All",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getAllNotifications() {
-        System.out.println("Holaaaaaa");
-        List<NotificationModel> notificationModels = notificationService.consultAllNotifications();
-        Gson gson = new Gson();
+        List<NotificationModel> notificationModels = notificationService.getAllNotifications();
         return new ResponseEntity<>(notificationModels, HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(path = "/{email}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getNotificationsUserForEmail(@PathVariable String email) {
-        List<NotificationModel> notificationModels = notificationService.consultNotificationsUserForEmai(email);
-        Gson gson = new Gson();
+        List<NotificationModel> notificationModels = notificationService.consultNotificationsUserForEmail(email);
         return new ResponseEntity<>(notificationModels, HttpStatus.ACCEPTED);
     }
 
@@ -41,4 +38,11 @@ public class NotificationController {
         notificationService.deleteNotification(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
+
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> postReport(@RequestBody NotificationModel notification) {
+        notificationService.addNotification(notification);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
 }

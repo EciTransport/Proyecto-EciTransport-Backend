@@ -3,6 +3,7 @@ package com.proyecto.eciTransport.services;
 
 
 
+import com.proyecto.eciTransport.models.NotificationModel;
 import com.proyecto.eciTransport.models.UserModel;
 import com.proyecto.eciTransport.repositories.UserRespository;
 
@@ -11,7 +12,9 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @EnableMongoRepositories
 @Service
@@ -29,7 +32,6 @@ public class UserService {
     public Optional<UserModel> consultUser(long id) {
         return userRespository.findById(id);
     }
-
 
     /**
      * Consult user for Id
@@ -56,6 +58,7 @@ public class UserService {
      * @return list of users of eciTransport
      */
     public List<UserModel> getUsers() {
-        return  userRespository.findAll();
+        return userRespository.findAll();
     }
+
 }

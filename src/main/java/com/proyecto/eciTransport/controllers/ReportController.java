@@ -1,6 +1,7 @@
 package com.proyecto.eciTransport.controllers;
 
 import com.google.gson.Gson;
+import com.proyecto.eciTransport.models.CommentModel;
 import com.proyecto.eciTransport.models.ReportModel;
 import com.proyecto.eciTransport.services.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,6 +78,12 @@ public class ReportController {
     @RequestMapping(path = "delete/{id}", method = RequestMethod.DELETE,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> deleteReport(@PathVariable long id) {
         reportService.deleteReport(id);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    @RequestMapping(path = "comment/{idReport}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> addComment(@PathVariable long idReport, @RequestBody CommentModel comment) {
+        reportService.addComment(idReport, comment);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 

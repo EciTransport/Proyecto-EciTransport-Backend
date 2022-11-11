@@ -11,18 +11,16 @@ public class UserModel {
     private long id;
     private String nombre;
     private String email;
-    private String password;
     private String imageProfile;
 
     public UserModel() {
         super();
     }
 
-    public UserModel(long id, String nombre, String email, String password, String imageProfile) {
+    public UserModel(long id, String nombre, String email, String imageProfile) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
-        this.password = password;
         this.imageProfile = imageProfile;
     }
 
@@ -50,14 +48,6 @@ public class UserModel {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getImageProfile() {
         return imageProfile;
     }
@@ -72,7 +62,6 @@ public class UserModel {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
                 ", imageProfile='" + imageProfile + '\'' +
                 '}';
     }

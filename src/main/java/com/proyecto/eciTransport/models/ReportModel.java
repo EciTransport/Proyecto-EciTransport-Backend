@@ -2,7 +2,6 @@ package com.proyecto.eciTransport.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.util.Date;
 import java.util.ArrayList;
@@ -19,9 +18,10 @@ public class ReportModel {
     private String ubicacion;
     private long numberlikes;
     private ArrayList<ImagesReportModel> imagesReport;
+    private ArrayList<CommentModel> comments;
 
     public ReportModel(long id, UserModel author, String description, Date hourReport, String sentido,
-                       String ubicacion, long numberlikes, ArrayList imagesReport) {
+                       String ubicacion, long numberlikes, ArrayList<ImagesReportModel> imagesReport, ArrayList<CommentModel> comments) {
         this.id = id;
         this.author = author;
         this.description = description;
@@ -30,6 +30,7 @@ public class ReportModel {
         this.ubicacion = ubicacion;
         this.numberlikes = numberlikes;
         this.imagesReport = imagesReport;
+        this.comments = comments;
     }
 
     public long getId() {
@@ -96,6 +97,14 @@ public class ReportModel {
         this.imagesReport = imagesReport;
     }
 
+    public ArrayList<CommentModel> getComments() {
+        return comments;
+    }
+
+    public void setComments(ArrayList<CommentModel> comments) {
+        this.comments = comments;
+    }
+
     @Override
     public String toString() {
         return "ReportModel{" +
@@ -107,6 +116,7 @@ public class ReportModel {
                 ", ubicacion='" + ubicacion + '\'' +
                 ", numberlikes=" + numberlikes +
                 ", imagesReport=" + imagesReport +
+                ", comments=" + comments +
                 '}';
     }
 }

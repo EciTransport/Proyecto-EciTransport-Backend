@@ -1,10 +1,12 @@
 package com.proyecto.eciTransport.services;
 
+import com.proyecto.eciTransport.models.CommentModel;
 import com.proyecto.eciTransport.models.ReportModel;
 import com.proyecto.eciTransport.repositories.ReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Service;
+import org.yaml.snakeyaml.events.Event;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -21,7 +23,7 @@ public class ReportService {
      * @param report Object Report
      */
     public void createReport(ReportModel report) {
-        reportRepository.save(new ReportModel(report.getId(),report.getAuthor(),report.getDescription(),report.getHourReport(),report.getSentido(),report.getUbicacion(),report.getNumberlikes(),report.getImagesReport()));
+        reportRepository.save(new ReportModel(report.getId(),report.getAuthor(),report.getDescription(),report.getHourReport(),report.getSentido(),report.getUbicacion(),report.getNumberlikes(),report.getImagesReport(), report.getComments()));
     }
 
     /**
@@ -88,5 +90,15 @@ public class ReportService {
         reportRepository.deleteById(id);
     }
 
+    /**
+     * Add Comment Report
+     * @param idReport id Report
+     * @param commentModel New Comment
+     */
+    public void addComment(long idReport, CommentModel commentModel) {
+        ReportModel reportModel = reportRepository.findAll().stream().filter(r -> Objects.equals(r.getId(), idReport)).collect(Collectors.toList()).get(0);
+        reportModel.getComments().add(commentModel);
+        createReport(reportModel);
+    }
 
 }

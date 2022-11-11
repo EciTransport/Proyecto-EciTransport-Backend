@@ -4,7 +4,6 @@ public class ImagesReportModel {
 
     private String urlImage;
 
-
     public ImagesReportModel(String urlImage) {
         this.urlImage = urlImage;
     }

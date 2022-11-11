@@ -1,4 +1,6 @@
 package com.proyecto.eciTransport.controllers;
+import com.proyecto.eciTransport.models.NotificationModel;
+import com.proyecto.eciTransport.models.ReportModel;
 import com.proyecto.eciTransport.models.UserModel;
 import com.proyecto.eciTransport.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +22,7 @@ public class UserController {
     UserService userService;
 
     @RequestMapping(path = "id/{id}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> getUser(@PathVariable long id) {
+    public ResponseEntity<?> getUserId(@PathVariable long id) {
         Optional<UserModel> usuarioModel = userService.consultUser(id);
         Gson gson = new Gson();
         return new ResponseEntity<>(gson.toJson(usuarioModel), HttpStatus.ACCEPTED);
@@ -40,9 +42,10 @@ public class UserController {
         return new ResponseEntity<>(gson.toJson(usuarioModel), HttpStatus.ACCEPTED);
     }
 
-    @GetMapping
-    public List<UserModel> consultUserReports(){
-        return userService.getUsers();
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getAllUser(){
+        List<UserModel> users = userService.getUsers();
+        return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
     }
 
 }
