@@ -19,9 +19,10 @@ public class ReportModel {
     private long numberlikes;
     private ArrayList<ImagesReportModel> imagesReport;
     private ArrayList<CommentModel> comments;
+    private ArrayList<Long> idUserLikes;
 
     public ReportModel(long id, UserModel author, String description, Date hourReport, String sentido,
-                       String ubicacion, long numberlikes, ArrayList<ImagesReportModel> imagesReport, ArrayList<CommentModel> comments) {
+                       String ubicacion, long numberlikes, ArrayList<ImagesReportModel> imagesReport, ArrayList<CommentModel> comments, ArrayList<Long> idUserLikes) {
         this.id = id;
         this.author = author;
         this.description = description;
@@ -31,6 +32,7 @@ public class ReportModel {
         this.numberlikes = numberlikes;
         this.imagesReport = imagesReport;
         this.comments = comments;
+        this.idUserLikes = idUserLikes;
     }
 
     public long getId() {
@@ -105,6 +107,14 @@ public class ReportModel {
         this.comments = comments;
     }
 
+    public ArrayList<Long> getIdUserLikes() {
+        return idUserLikes;
+    }
+
+    public void setIdUserLikes(ArrayList<Long> idUserLikes) {
+        this.idUserLikes = idUserLikes;
+    }
+
     @Override
     public String toString() {
         return "ReportModel{" +
@@ -117,6 +127,8 @@ public class ReportModel {
                 ", numberlikes=" + numberlikes +
                 ", imagesReport=" + imagesReport +
                 ", comments=" + comments +
+                ", idUserLikes=" + idUserLikes +
                 '}';
     }
 }
+

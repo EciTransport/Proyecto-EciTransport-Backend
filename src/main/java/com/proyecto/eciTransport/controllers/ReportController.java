@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -85,6 +86,20 @@ public class ReportController {
     public ResponseEntity<?> addComment(@PathVariable long idReport, @RequestBody CommentModel comment) {
         reportService.addComment(idReport, comment);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    @RequestMapping(path = "likeAdd/{idReport}/{idUser}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> addUserListLike(@PathVariable long idReport, @PathVariable long idUser) {
+        ArrayList<Long> list = reportService.addUserListLike(idReport, idUser);
+        Gson gson = new Gson();
+        return new ResponseEntity<>(gson.toJson(list), HttpStatus.ACCEPTED);
+    }
+
+    @RequestMapping(path = "likeDel/{idReport}/{idUser}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> deleteUserListLike(@PathVariable long idReport, @PathVariable long idUser) {
+        ArrayList<Long> list =  reportService.deleteUserListLike(idReport, idUser);
+        Gson gson = new Gson();
+        return new ResponseEntity<>(gson.toJson(list), HttpStatus.ACCEPTED);
     }
 
 }

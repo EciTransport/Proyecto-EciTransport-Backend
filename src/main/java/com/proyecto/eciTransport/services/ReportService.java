@@ -23,7 +23,7 @@ public class ReportService {
      * @param report Object Report
      */
     public void createReport(ReportModel report) {
-        reportRepository.save(new ReportModel(report.getId(),report.getAuthor(),report.getDescription(),report.getHourReport(),report.getSentido(),report.getUbicacion(),report.getNumberlikes(),report.getImagesReport(), report.getComments()));
+        reportRepository.save(report);
     }
 
     /**
@@ -99,6 +99,30 @@ public class ReportService {
         ReportModel reportModel = reportRepository.findAll().stream().filter(r -> Objects.equals(r.getId(), idReport)).collect(Collectors.toList()).get(0);
         reportModel.getComments().add(commentModel);
         createReport(reportModel);
+    }
+
+    /**
+     * Add User List User Likes
+     * @param idReport is Report
+     * @param idUser idUser
+     */
+    public ArrayList<Long> addUserListLike(long idReport, long idUser) {
+        ReportModel reportModel = reportRepository.findAll().stream().filter(r -> Objects.equals(r.getId(), idReport)).collect(Collectors.toList()).get(0);
+        reportModel.getIdUserLikes().add(idUser);
+        createReport(reportModel);
+        return reportModel.getIdUserLikes();
+    }
+
+    /**
+     * Delete User List User Likes
+     * @param idReport is Report
+     * @param idUser idUser
+     */
+    public ArrayList<Long> deleteUserListLike(long idReport, long idUser) {
+        ReportModel reportModel = reportRepository.findAll().stream().filter(r -> Objects.equals(r.getId(), idReport)).collect(Collectors.toList()).get(0);
+        reportModel.getIdUserLikes().remove(idUser);
+        createReport(reportModel);
+        return reportModel.getIdUserLikes();
     }
 
 }

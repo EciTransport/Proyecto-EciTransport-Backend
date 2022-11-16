@@ -41,6 +41,7 @@ public class UserService {
      */
     public Optional<UserModel> consultUserName(String name) {
         return userRespository.findAll().stream().filter(u->u.getNombre().equals(name)).findAny();
+
     }
 
     /**

@@ -21,12 +21,6 @@ public class ReportRepositoryImpl  {
 
     }
 
-    public void crateReport(long id, UserModel author, String description, Date hourReport, String sense, String location, long numberLikes, ArrayList imagesReport, ArrayList<CommentModel> comments) {
-        ReportModel newReport = new ReportModel(id,author,description,hourReport,sense,location,numberLikes,imagesReport, comments);
-        reports.add(newReport);
-    }
-
-
     public ArrayList<ReportModel> getAllReports() {
         return reports;
     }
