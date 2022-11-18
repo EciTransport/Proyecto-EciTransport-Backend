@@ -14,7 +14,7 @@ public class NotificationModel {
     private UserModel userReceiver;
     private UserModel userCreator;
     private Date hour;
-    private String description;
+        private String description;
 
     public NotificationModel(long id, UserModel userReceiver, UserModel userCreator, Date hour, String description) {
         this.id = id;
