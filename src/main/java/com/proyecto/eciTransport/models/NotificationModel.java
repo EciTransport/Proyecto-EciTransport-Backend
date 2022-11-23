@@ -1,5 +1,6 @@
 package com.proyecto.eciTransport.models;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -10,25 +11,25 @@ import java.util.Date;
 public class NotificationModel {
 
     @Id
-    private long id;
+    private ObjectId id;
     private UserModel userReceiver;
     private UserModel userCreator;
     private Date hour;
-        private String description;
+    private String description;
+    private String idString;
 
-    public NotificationModel(long id, UserModel userReceiver, UserModel userCreator, Date hour, String description) {
-        this.id = id;
+    public NotificationModel(UserModel userReceiver, UserModel userCreator, Date hour, String description) {
         this.userReceiver = userReceiver;
         this.userCreator = userCreator;
         this.hour = hour;
         this.description = description;
     }
 
-    public long getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
@@ -62,6 +63,14 @@ public class NotificationModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getIdString() {
+        return idString;
+    }
+
+    public void setIdString(String idString) {
+        this.idString = idString;
     }
 
     @Override

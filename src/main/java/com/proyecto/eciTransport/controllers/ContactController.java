@@ -38,5 +38,4 @@ public class ContactController {
         return new ResponseEntity<>(gson.toJson(contactModels), HttpStatus.ACCEPTED);
     }
 
-
 }

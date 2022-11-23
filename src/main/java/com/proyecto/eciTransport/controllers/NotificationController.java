@@ -5,6 +5,7 @@ import com.proyecto.eciTransport.models.ContactModel;
 import com.proyecto.eciTransport.models.NotificationModel;
 import com.proyecto.eciTransport.models.ReportModel;
 import com.proyecto.eciTransport.services.NotificationService;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -34,7 +35,7 @@ public class NotificationController {
     }
 
     @RequestMapping(path = "/delete/{id}", method = RequestMethod.DELETE,produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> deleteNotification(@PathVariable long id) {
+    public ResponseEntity<?> deleteNotification(@PathVariable String id) {
         notificationService.deleteNotification(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }

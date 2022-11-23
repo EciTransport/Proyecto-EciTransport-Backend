@@ -1,20 +1,13 @@
 package com.proyecto.eciTransport.services;
-
-
-
-
-import com.proyecto.eciTransport.models.NotificationModel;
 import com.proyecto.eciTransport.models.UserModel;
 import com.proyecto.eciTransport.repositories.UserRespository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Objects;
+
 import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 @EnableMongoRepositories
 @Service
@@ -46,8 +39,6 @@ public class UserService {
 
     /**
      * Consult user for Id
-     *
-
      * @return user
      */
     public Optional<UserModel> consultUserEmail(String email) {
