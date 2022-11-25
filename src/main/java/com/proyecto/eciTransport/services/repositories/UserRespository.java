@@ -1,4 +1,4 @@
-package com.proyecto.eciTransport.repositories;
+package com.proyecto.eciTransport.services.repositories;
 
 import com.proyecto.eciTransport.models.UserModel;
 import org.springframework.data.mongodb.repository.MongoRepository;

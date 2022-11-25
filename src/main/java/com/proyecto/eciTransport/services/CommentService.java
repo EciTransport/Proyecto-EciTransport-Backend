@@ -1,9 +1,7 @@
 package com.proyecto.eciTransport.services;
 
 import com.proyecto.eciTransport.models.CommentModel;
-import com.proyecto.eciTransport.models.ReportModel;
-import com.proyecto.eciTransport.repositories.CommentRepository;
-import com.proyecto.eciTransport.repositories.NotificationRepository;
+import com.proyecto.eciTransport.services.repositories.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Service;

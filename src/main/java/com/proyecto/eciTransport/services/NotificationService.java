@@ -1,9 +1,7 @@
 package com.proyecto.eciTransport.services;
 
 import com.proyecto.eciTransport.models.NotificationModel;
-import com.proyecto.eciTransport.models.ReportModel;
-import com.proyecto.eciTransport.repositories.NotificationRepository;
-import org.bson.types.ObjectId;
+import com.proyecto.eciTransport.services.repositories.NotificationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Service;
