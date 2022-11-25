@@ -1,6 +1,6 @@
 package com.proyecto.eciTransport.services;
 import com.proyecto.eciTransport.models.UserModel;
-import com.proyecto.eciTransport.services.repositories.UserRespository;
+import com.proyecto.eciTransport.repositories.UserRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Service;

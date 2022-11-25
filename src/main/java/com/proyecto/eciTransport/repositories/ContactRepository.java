@@ -1,4 +1,4 @@
-package com.proyecto.eciTransport.services.repositories;
+package com.proyecto.eciTransport.repositories;
 
 import com.proyecto.eciTransport.models.ContactModel;
 import com.proyecto.eciTransport.models.ReportModel;
