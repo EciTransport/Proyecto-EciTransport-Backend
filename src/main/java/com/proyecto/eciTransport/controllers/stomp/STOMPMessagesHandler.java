@@ -14,7 +14,8 @@ import java.util.List;
 
 
 @Controller
-public class STOMPMessagesHandler {
+public class
+STOMPMessagesHandler {
 
     @Autowired
     SimpMessagingTemplate msgt;
