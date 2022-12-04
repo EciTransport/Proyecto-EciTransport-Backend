@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      user: carlos
+      password: carvalye
+      uri: mongodb+srv://carlos:carvalye@ecitransport.jmfeldv.mongodb.net/ecitransport?retryWrites=true&w=majority
