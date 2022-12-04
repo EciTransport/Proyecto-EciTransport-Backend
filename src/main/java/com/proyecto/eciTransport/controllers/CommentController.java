@@ -1,6 +1,5 @@
 package com.proyecto.eciTransport.controllers;
 
-import com.google.gson.Gson;
 import com.proyecto.eciTransport.models.CommentModel;
 import com.proyecto.eciTransport.services.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +28,6 @@ public class CommentController {
     public ResponseEntity<?> postComment(@RequestBody CommentModel comment) {
         CommentModel commentAdd = commentService.createComment(comment);
         return new ResponseEntity<>(commentAdd, HttpStatus.CREATED);
-    }
-
-    @RequestMapping(path = "idReport/{idReport}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> getCommentsReport(@PathVariable String idReport) {
-        List<CommentModel> comments = commentService.getCommentsReport(idReport);
-        Gson gson = new Gson();
-        return new ResponseEntity<>(gson.toJson(comments), HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(path = "delete/{id}", method = RequestMethod.DELETE,produces = MediaType.APPLICATION_JSON_VALUE)

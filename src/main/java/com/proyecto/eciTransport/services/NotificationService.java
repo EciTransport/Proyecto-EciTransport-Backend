@@ -3,6 +3,7 @@ package com.proyecto.eciTransport.services;
 import com.proyecto.eciTransport.models.NotificationModel;
 import com.proyecto.eciTransport.models.ReportModel;
 import com.proyecto.eciTransport.repositories.NotificationRepository;
+import org.aspectj.weaver.ast.Not;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
@@ -54,12 +55,13 @@ public class NotificationService {
         notificationRepository.delete(notification);
     }
 
-
     /**
      * Add Notification
      * @param notificationModel notification
      */
-    public void addNotification(NotificationModel notificationModel) {
+    public NotificationModel addNotification(NotificationModel notificationModel) {
         notificationRepository.save(notificationModel);
+        notificationModel.setIdString(notificationModel.getId().toString());
+        return notificationModel;
     }
 }

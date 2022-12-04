@@ -1,11 +1,7 @@
 package com.proyecto.eciTransport.controllers;
 
-import com.google.gson.Gson;
-import com.proyecto.eciTransport.models.ContactModel;
 import com.proyecto.eciTransport.models.NotificationModel;
-import com.proyecto.eciTransport.models.ReportModel;
 import com.proyecto.eciTransport.services.NotificationService;
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -42,8 +38,8 @@ public class NotificationController {
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> postReport(@RequestBody NotificationModel notification) {
-        notificationService.addNotification(notification);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        NotificationModel newNotification = notificationService.addNotification(notification);
+        return new ResponseEntity<>(newNotification, HttpStatus.CREATED);
     }
 
 }
