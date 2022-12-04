@@ -1,9 +1,7 @@
 package com.proyecto.eciTransport.models;
-
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DocumentReference;
-
 import java.util.Date;
 import java.util.ArrayList;
 
@@ -11,33 +9,52 @@ import java.util.ArrayList;
 public class ReportModel {
 
     @Id
-    private long id;
-
+    private ObjectId id;
     private UserModel author;
     private String description;
     private Date hourReport;
     private String sentido;
     private String ubicacion;
-    private long numberlikes;
-    private ArrayList<ImagesReportModel> imagesReport;
+    private String latlng;
+    private ArrayList<String> imagesReport;
+    private ArrayList<CommentModel> comments;
+    private ArrayList<Long> idUserLikes;
+    private String idString;
 
-    public ReportModel(long id, UserModel author, String description, Date hourReport, String sentido,
-                       String ubicacion, long numberlikes, ArrayList imagesReport) {
-        this.id = id;
+    public ReportModel(UserModel author, String description, Date hourReport, String sentido,
+                       String ubicacion, String latlng, ArrayList<String> imagesReport, ArrayList<CommentModel> comments, ArrayList<Long> idUserLikes) {
         this.author = author;
         this.description = description;
         this.hourReport = hourReport;
         this.sentido = sentido;
         this.ubicacion = ubicacion;
-        this.numberlikes = numberlikes;
         this.imagesReport = imagesReport;
+        this.comments = comments;
+        this.idUserLikes = idUserLikes;
+        this.latlng = latlng;
     }
 
-    public long getId() {
+    public String getIdString() {
+        return idString;
+    }
+
+    public void setIdString(String idString) {
+        this.idString = idString;
+    }
+
+    public String getLatlng() {
+        return latlng;
+    }
+
+    public void setLatlng(String latlng) {
+        this.latlng = latlng;
+    }
+
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
@@ -81,20 +98,28 @@ public class ReportModel {
         ubicacion = ubicacion;
     }
 
-    public long getNumberlikes() {
-        return numberlikes;
-    }
-
-    public void setNumberlikes(long numberlikes) {
-        this.numberlikes = numberlikes;
-    }
-
-    public ArrayList<ImagesReportModel> getImagesReport() {
+    public ArrayList<String> getImagesReport() {
         return imagesReport;
     }
 
-    public void setImagesReport(ArrayList<ImagesReportModel> imagesReport) {
+    public void setImagesReport(ArrayList<String> imagesReport) {
         this.imagesReport = imagesReport;
+    }
+
+    public ArrayList<CommentModel> getComments() {
+        return comments;
+    }
+
+    public void setComments(ArrayList<CommentModel> comments) {
+        this.comments = comments;
+    }
+
+    public ArrayList<Long> getIdUserLikes() {
+        return idUserLikes;
+    }
+
+    public void setIdUserLikes(ArrayList<Long> idUserLikes) {
+        this.idUserLikes = idUserLikes;
     }
 
     @Override
@@ -106,8 +131,11 @@ public class ReportModel {
                 ", hourReport=" + hourReport +
                 ", sentido='" + sentido + '\'' +
                 ", ubicacion='" + ubicacion + '\'' +
-                ", numberlikes=" + numberlikes +
                 ", imagesReport=" + imagesReport +
+                ", comments=" + comments +
+                ", latIlong=" + latlng +
+                ", idUserLikes=" + idUserLikes +
                 '}';
     }
 }
+
