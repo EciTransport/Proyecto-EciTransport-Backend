@@ -20,6 +20,4 @@ public class projectApplication{
 		SpringApplication.run(projectApplication.class, args);
 	}
 
-
-
 }

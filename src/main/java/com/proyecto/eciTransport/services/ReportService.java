@@ -5,7 +5,6 @@ import com.proyecto.eciTransport.repositories.ReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Service;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -20,8 +19,10 @@ public class ReportService {
      * Create new report
      * @param report Object Report
      */
-    public void createReport(ReportModel report) {
-        reportRepository.save(new ReportModel(report.getId(),report.getAuthor(),report.getDescription(),report.getHourReport(),report.getSentido(),report.getUbicacion(),report.getNumberlikes(),report.getImagesReport()));
+    public ReportModel createReport(ReportModel report) {
+        reportRepository.save(report);
+        report.setIdString(report.getId().toString());
+        return report;
     }
 
     /**
@@ -29,64 +30,70 @@ public class ReportService {
      * @return ArrayList the reports
      */
     public List<ReportModel> getAllReports() {
-        return reportRepository.findAll();
+        List<ReportModel> reportsAll = reportRepository.findAll();
+        for(ReportModel r: reportsAll) {
+            r.setIdString(r.getId().toString());
+        }
+        return reportsAll;
     }
-
 
     /**
-     * Get All Reports
-     * @return ArrayList the reports
+     * Get reports User
+     * @param email email User
+     * @return List Reports
      */
-    public List<ReportModel> getReportUser(long id) {
-        return reportRepository.findAll().stream().filter(r -> r.getAuthor().getId() == (id)).collect(Collectors.toList());
-    }
-
     public List<ReportModel> getReportUserEmail(String email) {
-        return reportRepository.findAll().stream().filter(r -> Objects.equals(r.getAuthor().getEmail(), email)).collect(Collectors.toList());
-    }
-
-
-    /**
-     * Get All Reports with specific location
-     * @return ArrayList the reports
-     */
-    public List<ReportModel> getAllReportsLocation(String location) {
-      return reportRepository.findAll().stream().filter(r -> r.getUbicacion().equals(location)).collect(Collectors.toList());
-    }
-
-    /**
-     * Get All Reports with specific location
-     * @return ArrayList the reports
-     */
-    public List<ReportModel> getAllReportsSense(String sense) {
-            return reportRepository.findAll().stream().filter(r ->r.getSentido().equals(sense)).collect(Collectors.toList());
-    }
-
-    /**
-     * Get All Reports with specific Date
-     * @return ArrayList the reports
-     */
-    public List<ReportModel> getAllReportsDate(Date date) {
-            return reportRepository.findAll().stream().filter(r -> r.getHourReport().equals(date)).collect(Collectors.toList());
+        List<ReportModel> reports = reportRepository.findAll().stream().filter(r -> Objects.equals(r.getAuthor().getEmail(), email)).collect(Collectors.toList());
+        for(ReportModel r: reports) {
+            r.setIdString(r.getId().toString());
+        }
+        return reports;
     }
 
     /**
      * consult a specific report
-     *
      * @param id of specific report
      * @return report
      */
-    public Optional<ReportModel> consultReport(long id) {
-        return reportRepository.findById(id);
+    public ReportModel consultReport(String id) {
+        ReportModel report = reportRepository.findAll().stream().filter(r -> r.getId().toString().equals(id)).collect(Collectors.toList()).get(0);
+        report.setIdString(report.getId().toString());
+        return report;
     }
 
     /**
      * Delete Report
      * @param id Id report
      */
-    public void deleteReport(long id) {
-        reportRepository.deleteById(id);
+    public void deleteReport(String id) {
+        ReportModel report = reportRepository.findAll().stream().filter(r -> r.getId().toString().equals(id)).collect(Collectors.toList()).get(0);
+        reportRepository.delete(report);
     }
 
+    /**
+     * Add User List User Likes
+     * @param idReport is Report
+     * @param idUser idUser
+     */
+    public ReportModel addUserListLike(String idReport, long idUser) {
+        ReportModel reportModel = reportRepository.findAll().stream().filter(r -> r.getId().toString().equals(idReport)).collect(Collectors.toList()).get(0);
+        if (!reportModel.getIdUserLikes().contains(idUser)) {
+            reportModel.getIdUserLikes().add(idUser);
+        }
+        createReport(reportModel);
+        return reportModel;
+    }
+
+    /**
+     * Delete User List User Likes
+     * @param idReport is Report
+     * @param idUser idUser
+     */
+    public ArrayList<Long> deleteUserListLike(String idReport, long idUser) {
+        ReportModel reportModel = reportRepository.findAll().stream().filter(r -> r.getId().toString().equals(idReport)).collect(Collectors.toList()).get(0);
+        reportModel.getIdUserLikes().remove(idUser);
+        createReport(reportModel);
+        return reportModel.getIdUserLikes();
+    }
 
 }
