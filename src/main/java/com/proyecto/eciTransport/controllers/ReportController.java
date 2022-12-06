@@ -31,8 +31,8 @@ public class ReportController {
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> postReport(@RequestBody ReportModelDto reportDto) {
-        ReportModel report = new ReportModel(reportDto.getAuthor(), reportDto.getDescription(), reportDto.getHourReport(), reportDto.getSentido(),
-                reportDto.getUbicacion(), reportDto.getLatlng(), reportDto.getImagesReport(), reportDto.getComments(), reportDto.getIdUserLikes());
+        ReportModel report = new ReportModel(reportDto.getAuthorDto(), reportDto.getDescriptionDto(), reportDto.getHourReportDto(), reportDto.getSentidoDto(),
+                reportDto.getUbicacionDto(), reportDto.getLatlngDto(), reportDto.getImagesReportDto(), reportDto.getCommentsDto(), reportDto.getIdUserLikesDto());
         ReportModel reportModel = reportService.createReport(report);
         return new ResponseEntity<>(reportModel, HttpStatus.CREATED);
     }

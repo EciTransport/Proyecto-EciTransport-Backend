@@ -8,99 +8,99 @@ import java.util.Date;
 
 public class ReportModelDto {
 
-    private UserModel author;
-    private String description;
-    private Date hourReport;
-    private String sentido;
-    private String ubicacion;
-    private String latlng;
-    private ArrayList<String> imagesReport;
-    private ArrayList<CommentModel> comments;
-    private ArrayList<Long> idUserLikes;
+    private UserModel authorDto;
+    private String descriptionDto;
+    private Date hourReportDto;
+    private String sentidoDto;
+    private String ubicacionDto;
+    private String latlngDto;
+    private ArrayList<String> imagesReportDto;
+    private ArrayList<CommentModel> commentsDto;
+    private ArrayList<Long> idUserLikesDto;
 
-    public ReportModelDto(UserModel author, String description, Date hourReport, String sentido, String ubicacion,
-                          String latlng, ArrayList<String> imagesReport, ArrayList<CommentModel> comments,
-                          ArrayList<Long> idUserLikes) {
-        this.author = author;
-        this.description = description;
-        this.hourReport = hourReport;
-        this.sentido = sentido;
-        this.ubicacion = ubicacion;
-        this.latlng = latlng;
-        this.imagesReport = imagesReport;
-        this.comments = comments;
-        this.idUserLikes = idUserLikes;
+    public ReportModelDto(UserModel authorDto, String descriptionDto, Date hourReportDto, String sentidoDto, String ubicacionDto,
+                          String latlngDto, ArrayList<String> imagesReportDto, ArrayList<CommentModel> commentsDto,
+                          ArrayList<Long> idUserLikesDto) {
+        this.authorDto = authorDto;
+        this.descriptionDto = descriptionDto;
+        this.hourReportDto = hourReportDto;
+        this.sentidoDto = sentidoDto;
+        this.ubicacionDto = ubicacionDto;
+        this.latlngDto = latlngDto;
+        this.imagesReportDto = imagesReportDto;
+        this.commentsDto = commentsDto;
+        this.idUserLikesDto = idUserLikesDto;
     }
 
-    public UserModel getAuthor() {
-        return author;
+    public UserModel getAuthorDto() {
+        return authorDto;
     }
 
-    public void setAuthor(UserModel author) {
-        this.author = author;
+    public void setAuthorDto(UserModel authorDto) {
+        this.authorDto = authorDto;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescriptionDto() {
+        return descriptionDto;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescriptionDto(String descriptionDto) {
+        this.descriptionDto = descriptionDto;
     }
 
-    public Date getHourReport() {
-        return hourReport;
+    public Date getHourReportDto() {
+        return hourReportDto;
     }
 
-    public void setHourReport(Date hourReport) {
-        this.hourReport = hourReport;
+    public void setHourReportDto(Date hourReportDto) {
+        this.hourReportDto = hourReportDto;
     }
 
-    public String getSentido() {
-        return sentido;
+    public String getSentidoDto() {
+        return sentidoDto;
     }
 
-    public void setSentido(String sentido) {
-        this.sentido = sentido;
+    public void setSentidoDto(String sentidoDto) {
+        this.sentidoDto = sentidoDto;
     }
 
-    public String getUbicacion() {
-        return ubicacion;
+    public String getUbicacionDto() {
+        return ubicacionDto;
     }
 
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
+    public void setUbicacionDto(String ubicacionDto) {
+        this.ubicacionDto = ubicacionDto;
     }
 
-    public String getLatlng() {
-        return latlng;
+    public String getLatlngDto() {
+        return latlngDto;
     }
 
-    public void setLatlng(String latlng) {
-        this.latlng = latlng;
+    public void setLatlngDto(String latlngDto) {
+        this.latlngDto = latlngDto;
     }
 
-    public ArrayList<String> getImagesReport() {
-        return imagesReport;
+    public ArrayList<String> getImagesReportDto() {
+        return imagesReportDto;
     }
 
-    public void setImagesReport(ArrayList<String> imagesReport) {
-        this.imagesReport = imagesReport;
+    public void setImagesReportDto(ArrayList<String> imagesReportDto) {
+        this.imagesReportDto = imagesReportDto;
     }
 
-    public ArrayList<CommentModel> getComments() {
-        return comments;
+    public ArrayList<CommentModel> getCommentsDto() {
+        return commentsDto;
     }
 
-    public void setComments(ArrayList<CommentModel> comments) {
-        this.comments = comments;
+    public void setCommentsDto(ArrayList<CommentModel> commentsDto) {
+        this.commentsDto = commentsDto;
     }
 
-    public ArrayList<Long> getIdUserLikes() {
-        return idUserLikes;
+    public ArrayList<Long> getIdUserLikesDto() {
+        return idUserLikesDto;
     }
 
-    public void setIdUserLikes(ArrayList<Long> idUserLikes) {
-        this.idUserLikes = idUserLikes;
+    public void setIdUserLikesDto(ArrayList<Long> idUserLikesDto) {
+        this.idUserLikesDto = idUserLikesDto;
     }
 }

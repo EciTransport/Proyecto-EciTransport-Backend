@@ -39,7 +39,7 @@ public class NotificationController {
 
     @PostMapping
     public ResponseEntity<?> postReport(@RequestBody NotificationModelDto notificationDto) {
-        NotificationModel notification = new NotificationModel(notificationDto.getUserReceiver(), notificationDto.getUserCreator(), notificationDto.getHour(), notificationDto.getDescription());
+        NotificationModel notification = new NotificationModel(notificationDto.getUserReceiverDto(), notificationDto.getUserCreatorDto(), notificationDto.getHourDto(), notificationDto.getDescriptionDto());
         NotificationModel newNotification = notificationService.addNotification(notification);
         return new ResponseEntity<>(newNotification, HttpStatus.CREATED);
     }

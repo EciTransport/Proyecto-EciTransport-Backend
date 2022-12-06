@@ -1,53 +1,51 @@
 package com.proyecto.eciTransport.models.dto;
 
 import com.proyecto.eciTransport.models.UserModel;
-
 import java.util.Date;
 
 public class CommentModelDto {
 
-    private String idReport;
-    private UserModel user;
-    private Date hour;
-    private String comment;
+    private String idReportDto;
+    private UserModel userDto;
+    private Date hourDto;
+    private String commentDto;
 
-    public CommentModelDto(String idReport, UserModel user, Date hour, String comment) {
-        this.idReport = idReport;
-        this.user = user;
-        this.hour = hour;
-        this.comment = comment;
+    public CommentModelDto(String idReportDto, UserModel userDto, Date hourDto, String commentDto) {
+        this.idReportDto = idReportDto;
+        this.userDto = userDto;
+        this.hourDto = hourDto;
+        this.commentDto = commentDto;
     }
 
-    public String getIdReport() {
-        return idReport;
+    public String getIdReportDto() {
+        return idReportDto;
     }
 
-    public void setIdReport(String idReport) {
-        this.idReport = idReport;
+    public void setIdReportDto(String idReportDto) {
+        this.idReportDto = idReportDto;
     }
 
-    public UserModel getUser() {
-        return user;
+    public UserModel getUserDto() {
+        return userDto;
     }
 
-    public void setUser(UserModel user) {
-        this.user = user;
+    public void setUserDto(UserModel userDto) {
+        this.userDto = userDto;
     }
 
-    public Date getHour() {
-        return hour;
+    public Date getHourDto() {
+        return hourDto;
     }
 
-    public void setHour(Date hour) {
-        this.hour = hour;
+    public void setHourDto(Date hourDto) {
+        this.hourDto = hourDto;
     }
 
-    public String getComment() {
-        return comment;
+    public String getCommentDto() {
+        return commentDto;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setCommentDto(String commentDto) {
+        this.commentDto = commentDto;
     }
-
 }

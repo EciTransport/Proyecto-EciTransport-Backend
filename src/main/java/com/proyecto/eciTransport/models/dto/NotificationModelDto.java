@@ -5,48 +5,47 @@ import java.util.Date;
 
 public class NotificationModelDto {
 
-    private UserModel userReceiver;
-    private UserModel userCreator;
-    private Date hour;
-    private String description;
+    private UserModel userReceiverDto;
+    private UserModel userCreatorDto;
+    private Date hourDto;
+    private String descriptionDto;
 
-    public NotificationModelDto(UserModel userReceiver, UserModel userCreator, Date hour, String description) {
-        this.userReceiver = userReceiver;
-        this.userCreator = userCreator;
-        this.hour = hour;
-        this.description = description;
+    public NotificationModelDto(UserModel userReceiverDto, UserModel userCreatorDto, Date hourDto, String descriptionDto) {
+        this.userReceiverDto = userReceiverDto;
+        this.userCreatorDto = userCreatorDto;
+        this.hourDto = hourDto;
+        this.descriptionDto = descriptionDto;
     }
 
-    public UserModel getUserReceiver() {
-        return userReceiver;
+    public UserModel getUserReceiverDto() {
+        return userReceiverDto;
     }
 
-    public void setUserReceiver(UserModel userReceiver) {
-        this.userReceiver = userReceiver;
+    public void setUserReceiverDto(UserModel userReceiverDto) {
+        this.userReceiverDto = userReceiverDto;
     }
 
-    public UserModel getUserCreator() {
-        return userCreator;
+    public UserModel getUserCreatorDto() {
+        return userCreatorDto;
     }
 
-    public void setUserCreator(UserModel userCreator) {
-        this.userCreator = userCreator;
+    public void setUserCreatorDto(UserModel userCreatorDto) {
+        this.userCreatorDto = userCreatorDto;
     }
 
-    public Date getHour() {
-        return hour;
+    public Date getHourDto() {
+        return hourDto;
     }
 
-    public void setHour(Date hour) {
-        this.hour = hour;
+    public void setHourDto(Date hourDto) {
+        this.hourDto = hourDto;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescriptionDto() {
+        return descriptionDto;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescriptionDto(String descriptionDto) {
+        this.descriptionDto = descriptionDto;
     }
-
 }
