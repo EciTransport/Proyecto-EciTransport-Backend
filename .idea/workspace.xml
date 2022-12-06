@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9b07bf80-8fa7-42f0-9367-bd6903fdcfb7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proyecto/eciTransport/controllers/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proyecto/eciTransport/controllers/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proyecto/eciTransport/controllers/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proyecto/eciTransport/controllers/NotificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proyecto/eciTransport/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proyecto/eciTransport/controllers/ReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proyecto/eciTransport/models/dto/CommentModelDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proyecto/eciTransport/models/dto/CommentModelDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proyecto/eciTransport/models/dto/NotificationModelDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proyecto/eciTransport/models/dto/NotificationModelDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proyecto/eciTransport/models/dto/ReportModelDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proyecto/eciTransport/models/dto/ReportModelDto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
