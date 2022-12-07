@@ -17,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("v1/reports/")
+@CrossOrigin
 public class ReportController {
 
     @Autowired

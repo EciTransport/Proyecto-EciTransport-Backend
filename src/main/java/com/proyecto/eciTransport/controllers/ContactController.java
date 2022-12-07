@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("v1/contacts/")
+@CrossOrigin
 public class ContactController {
 
     @Autowired

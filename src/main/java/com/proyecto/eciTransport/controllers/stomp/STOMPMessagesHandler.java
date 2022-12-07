@@ -23,22 +23,24 @@ STOMPMessagesHandler {
     @Autowired
     ReportService reportService;
 
+    //Reportes
     @MessageMapping("/addReport")
-    public void addReport(@RequestBody ReportModel report) {
+    public void addReport(ArrayList<ReportModel> reports) {
         System.out.println("Funcion Add Report");
-        msgt.convertAndSend("/topic/addReport", report);
+        msgt.convertAndSend("/topic/addReport", reports);
     }
 
     @MessageMapping("/delReport")
-    public void addReport(ArrayList<ReportModel> reports) {
+    public void delReport(ArrayList<ReportModel> reports) {
         System.out.println("Funcion Del Report");
         msgt.convertAndSend("/topic/delReport", reports);
     }
 
+    //Notifications
     @MessageMapping("/addNotification")
-    public void addNotification(@RequestBody NotificationModel notification) {
+    public void addNotification(ArrayList<NotificationModel> notifications) {
         System.out.println("Funcion Add Notification");
-        msgt.convertAndSend("/topic/addNotification", notification);
+        msgt.convertAndSend("/topic/addNotification", notifications);
     }
 
     @MessageMapping("/delNotification")
@@ -47,10 +49,11 @@ STOMPMessagesHandler {
         msgt.convertAndSend("/topic/delNotification", notifications);
     }
 
+    //Comments
     @MessageMapping("/addComment")
-    public void addComment(@RequestBody CommentModel comment) {
+    public void addComment(ArrayList<CommentModel> comments) {
         System.out.println("Funcion Add Comment");
-        msgt.convertAndSend("/topic/addComment", comment);
+        msgt.convertAndSend("/topic/addComment", comments);
     }
 
     @MessageMapping("/delComment")
@@ -59,8 +62,9 @@ STOMPMessagesHandler {
         msgt.convertAndSend("/topic/delComment", comments);
     }
 
+    //EXTRA
     @MessageMapping("/updateReport")
-    public void updComment() {
+    public void updReports() {
         System.out.println("Funcion Update Report");
         List<ReportModel> reports = reportService.getAllReports();
         msgt.convertAndSend("/topic/updateReport", reports);
